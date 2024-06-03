@@ -46,7 +46,7 @@ print("Current working directory:", cwd)
 
 # Read Config File
 settingsFile = os.path.join(cwd, "config.json")
-config = readConfig()
+config = readConfig(settingsFile)
 baudrate = config["baudrate"]
 uart = config["uart"]
 keyPress = config["keyPress"]
