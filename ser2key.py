@@ -4,6 +4,7 @@ import os
 import sys
 import serial
 import time
+import serial.tools.list_ports
 from pynput.keyboard import Key, Controller
 
 keyboard = Controller()
@@ -14,7 +15,7 @@ def readConfig(settingsFile):
             data = json.load(json_file)
     else:
         data = {
-            "uart" : "COM3",
+            "uart" : "auto",
 	        "baudrate" : 9600,
 	        "keyPress" : "abcdefghijklmnopqrstuvwxyz",
             "numBtns" : 1,
@@ -54,6 +55,12 @@ timer = config["timer"]
 numBtns = config["numBtns"]
 
 # setup Seiral
+if uart == "auto":
+    ports = list(serial.tools.list_ports.comports())
+    for p in ports:
+        if "USB" in p.description:
+            uart = p.device
+
 ser = serial.Serial(
         # Serial Port to read the data from
         port = uart,
