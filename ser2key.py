@@ -94,5 +94,4 @@ try:
                         ser.write(msg.encode('utf-8'))
 
 except KeyboardInterrupt:
-    killOmx()
-killOmx()
+    pass
