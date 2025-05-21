@@ -1,0 +1,13 @@
+{
+    "uart": "auto",
+    "baudrate": 9600,
+    "keyPress": "abcdefghijklmnopqrstuvwxyz",
+    "numBtns": 1,
+    "useTimer": false,
+    "timer": 120,
+    "useOsc": false,
+    "oscServer": "127.0.0.1",
+    "oscPort": 8010,
+    "oscAddress": "/serial",
+    "arduinoDriver": "USB\\VID_1A86&PID_7523"
+}
